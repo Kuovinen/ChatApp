@@ -1,4 +1,5 @@
 import User from "../models/user.model.js";
+import bcrypt from "bcrypt";
 
 export const signup = async (req, res) => {
   try {
@@ -11,26 +12,32 @@ export const signup = async (req, res) => {
       return res.status(400).json({ error: "User already exists" });
     }
     //HAS PASSOWRD
+    const salt = await bcrypt.genSalt(10); //higher better but slower
+    const hadshedPassword = await bcrypt.hash(password, salt);
     //https://avatar-placeholder.iran.liara.run
     const boyProfilePic = `https://avatar.iran.liara.run/public/boy?username=${username}`;
     const girlProfilePic = `https://avatar.iran.liara.run/public/girl?username=${username}`;
     const newUser = new User({
       fullname,
       username,
-      password,
+      password: hadshedPassword,
       gender,
       profilePic: gender === "male" ? boyProfilePic : girlProfilePic,
     });
-    await newUser.save();
-    res.status(201).json({
-      _id: newUser._id,
-      fullname: newUser.fullname,
-      username: newUser.username,
-      profilePic: newUser.profilePic,
-    });
+    if (newUser) {
+      await newUser.save();
+      res.status(201).json({
+        _id: newUser._id,
+        fullname: newUser.fullname,
+        username: newUser.username,
+        profilePic: newUser.profilePic,
+      });
+    } else {
+      res.status(500).json({ error: "Invalid User Data" });
+    }
   } catch (error) {
     console.log("Signup controller Error", error.message);
-    restart.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
