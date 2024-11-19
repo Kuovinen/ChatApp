@@ -43,9 +43,31 @@ export const signup = async (req, res) => {
   }
 };
 
-export const logout = (req, res) => {
-  res.send("Signup Route");
+export const login = async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    const user = await User.findOne({ username });
+    const isPasswordCorrect = await bcrypt.compare(
+      password,
+      user?.password || ""
+    );
+    if (!user || !isPasswordCorrect) {
+      res.status(400).json({ error: "Invalid user or password values" });
+    }
+
+    generateTokenAndSetCokie(user._id, res);
+
+    res.status(201).json({
+      _id: user._id,
+      fullname: user.fullname,
+      username: user.username,
+      profilePic: user.profilePic,
+    });
+  } catch (error) {
+    console.log("Error in login controller" + error);
+    res.status(500).json({ error: "Login error" });
+  }
 };
-export const login = (req, res) => {
+export const logout = (req, res) => {
   res.send("Signup Route");
 };
