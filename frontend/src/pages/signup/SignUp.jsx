@@ -1,19 +1,18 @@
 import { Link } from "react-router-dom";
 import Checkbox from "./Checkbox";
 import { useState } from "react";
-//import useSignup from "../../hooks/useSignup";
+import useSignup from "../../hooks/useSignup";
 
 const SignUp = () => {
   const [inputs, setInputs] = useState({
-    fullName: "",
+    fullname: "",
     username: "",
     password: "",
     confirmPassword: "",
     gender: "",
   });
 
-  //const { loading, signup } = useSignup();
-  const loading = false;
+  const { loading, signup } = useSignup();
 
   const handleCheckboxChange = (gender) => {
     setInputs({ ...inputs, gender });
@@ -21,7 +20,7 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    //await signup(inputs);
+    await signup(inputs);
   };
 
   return (
@@ -40,9 +39,9 @@ const SignUp = () => {
               type="text"
               placeholder="John Doe"
               className="w-full input input-bordered  h-10"
-              value={inputs.fullName}
+              value={inputs.fullname}
               onChange={(e) =>
-                setInputs({ ...inputs, fullName: e.target.value })
+                setInputs({ ...inputs, fullname: e.target.value })
               }
             />
           </div>
