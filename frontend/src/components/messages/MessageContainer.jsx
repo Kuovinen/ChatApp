@@ -2,11 +2,23 @@ import { useEffect } from "react";
 //import useConversation from "../../zustand/useConversation";
 import MessageInput from "./MessageInput";
 import Messages from "./Messages";
-//import { TiMessages } from "react-icons/ti";
 //import { useAuthContext } from "../../context/AuthContext";
 
-const MessageContainer = () => {
+const NoChatSelected = () => {
   return (
+    <div className="flex items-center justify-center w-full h-full opacity-40">
+      <div className="px-4 text-center sm:text-lg md:text-xl text-gray-200 font-semibold flex flex-col items-center gap-2">
+        <p>Please a conversation partner to start messaging</p>
+      </div>
+    </div>
+  );
+};
+
+const MessageContainer = () => {
+  const noChat = false;
+  const output = noChat ? (
+    <NoChatSelected />
+  ) : (
     <div className="md:min-w-[450px] flex flex-col">
       <>
         {/* Header */}
@@ -20,5 +32,6 @@ const MessageContainer = () => {
       </>
     </div>
   );
+  return output;
 };
 export default MessageContainer;
