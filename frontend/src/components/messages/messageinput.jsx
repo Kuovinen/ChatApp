@@ -1,5 +1,5 @@
 import { useState } from "react";
-//import { BsSend } from "react-icons/bs";
+import { BsSend } from "react-icons/bs";
 //import useSendMessage from "../../hooks/useSendMessage";
 
 const MessageInput = () => {
@@ -15,8 +15,7 @@ const MessageInput = () => {
           type="submit"
           className="absolute inset-y-0 end-0 flex items-center pe-3"
         >
-          {/*<BsSend />*/}
-          <button>SEND</button>
+          <BsSend />
         </button>
       </div>
     </form>
