@@ -9,6 +9,9 @@ body {
   background-size: cover;
   background-position: center;
 }
+body * {
+  box-sizing: border-box;
+}
 
 /* dark mode looking scrollbar */
 ::-webkit-scrollbar {
@@ -26,4 +29,83 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #242424;
+}
+#root {
+  height: 100vh;
+}
+.sidebar {
+  width: 20rem;
+  min-width: 20rem;
+}
+.sidebar,
+.conContainer {
+  min-width: 20rem;
+}
+.mainSection {
+  height: 100%;
+}
+.bl015 {
+  background: rgba(0, 0, 0, 0.15);
+}
+.bl01 {
+  background: rgba(0, 0, 0, 0.1);
+}
+.bl02 {
+  background: rgba(0, 0, 0, 0.2);
+}
+.bl03 {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.searchContainter {
+  padding: 1rem;
+}
+.logout {
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+}
+
+.searchBtn {
+  height: 3rem;
+  min-height: 3rem;
+  width: 3rem;
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.betterBtn:hover {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+.searchBtn:active {
+  transform: scale(0.975);
+}
+.input {
+  box-sizing: border-box;
+}
+
+.input:focus {
+  outline-offset: 0px;
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.messageInput {
+  height: 2.5rem;
+}
+.convo:hover .avatar {
+  transform: scale(1.05);
+}
+.convoSel {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.submit:active {
+  transform: scale(0.95);
+}
+.submit {
+  top: 0.2rem;
+}
+.checkbox:checked {
+  color: red;
 }

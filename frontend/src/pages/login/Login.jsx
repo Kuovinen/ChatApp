@@ -14,11 +14,11 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
-      <div className="w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0">
+    <div className="flex flex-col items-center justify-center min-w-96 mx-auto bl015 rounded-lg">
+      <div className="w-full p-6 rounded-lg shadow-md  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0">
         <h1 className="text-3xl font-semibold text-center text-gray-300">
-          Login
-          <span className="text-blue-500"> ChatApp</span>
+          Log into
+          <span className="text-amber-500"> ChatAPP</span>
         </h1>
 
         <form onSubmit={handleSubmit}>
@@ -49,13 +49,16 @@ const Login = () => {
           </div>
           <Link
             to="/signup"
-            className="text-sm  hover:underline hover:text-blue-600 mt-2 inline-block"
+            className="text-sm  hover:underline hover:text-amber-400 mt-2 inline-block underline"
           >
             {"Don't"} have an account?
           </Link>
 
           <div>
-            <button className="btn btn-block btn-sm mt-2" disabled={loading}>
+            <button
+              className="btn btn-block btn-sm mt-2 bg-amber-500 text-white text-lg betterBtn"
+              disabled={loading}
+            >
               {loading ? (
                 <span className="loading loading-spinner "></span>
               ) : (
