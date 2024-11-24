@@ -11,16 +11,16 @@ To install locally you need to clone this directory.
 
 ---
 
-`PORT = 5000`
-`URS=yourUserName`
+`PORT = 5000`  
+`URS=yourUserName`  
 `PSW=yourAtlasPassword(not the user one, one you get for db access)`
 
 `MONGO_DB_URL=yourMongoDburl`
 
-`JWT_SECRET=your JWTsecretCode`
+`JWT_SECRET=your JWTsecretCode`  
 `NODE_ENV="development"`
 
 To run the serever in root:
-`npm run server`
+`npm run server`  
 To run the frontend in folder frontend:
 `npm run dev`
