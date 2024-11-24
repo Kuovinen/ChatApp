@@ -21,5 +21,6 @@ To install locally you need to clone this directory.
 `NODE_ENV="development"`
 
 To run the app in root:
+`npm run build`
 `npm start`  
 the open localhost:5000
