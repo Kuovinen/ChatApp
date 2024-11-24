@@ -20,7 +20,6 @@ To install locally you need to clone this directory.
 `JWT_SECRET=your JWTsecretCode`  
 `NODE_ENV="development"`
 
-To run the serever in root:
-`npm run server`  
-To run the frontend in folder frontend:
-`npm run dev`
+To run the app in root:
+`npm start`  
+the open localhost:5000
